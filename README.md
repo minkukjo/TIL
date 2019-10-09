@@ -1,5 +1,4 @@
-
-![Elasticsearch-Logo-Color-V](https://media.oss.navercorp.com/user/15442/files/7a26be00-eacf-11e9-9274-eb02bbd63703)
+![image](https://user-images.githubusercontent.com/43809168/66479431-739c4480-ead7-11e9-9dc3-a374faf9d948.png)
 
 ## Partial Upadte
 
@@ -18,7 +17,7 @@ ES에 바뀐 필드를 **부분적**으로 업데이트해야 합니다.
 
 ## Update의 비용과 Immutable Document
 
-![image](https://media.oss.navercorp.com/user/15442/files/9840ee00-ead0-11e9-9aa6-748d37e389db)
+![image](https://user-images.githubusercontent.com/43809168/66479434-74cd7180-ead7-11e9-8a00-ccc89de4448f.png)
 
 ElasticSearch의 공식문서에 따르면, ElasticSearch에서 Document는 Immutable한 성질을 갖고 있다고 나와있습니다.
 
@@ -28,7 +27,7 @@ ElasticSearch의 공식문서에 따르면, ElasticSearch에서 Document는 Immu
 
 이 Segment들은 아래와 같이 관리되어집니다.
 
-![image](https://media.oss.navercorp.com/user/15442/files/4305dc00-ead2-11e9-8cbe-1fa2116ab550)
+![image](https://user-images.githubusercontent.com/43809168/66479438-772fcb80-ead7-11e9-979d-77e18c096c31.png)
 
 루씬 내부에서는 Update가 존재하지않고, Delete와 Create만이 존재합니다.
 
@@ -38,8 +37,7 @@ ElasticSearch의 공식문서에 따르면, ElasticSearch에서 Document는 Immu
 
 이때 Segment 병합에는 디스크 I/O가 필요하기 때문에 비용이 아주 비쌉니다.
 
-![image](https://media.oss.navercorp.com/user/15442/files/4f8b3400-ead4-11e9-9be8-84000dfff3e5)
-
+![image](https://user-images.githubusercontent.com/43809168/66479441-7860f880-ead7-11e9-9cf3-462cb060e2b9.png)
 
 때문에, 나중에 업데이트된 Segment 내의 문서를 새로 생성된 Segment 옮기는 것은 불가능 합니다.
 
@@ -65,9 +63,9 @@ Painless Script Language는 ElasticSearch에서 제공하는 동적 스크립트
 
 문법은 Groovy와 매우 흡사하며, 이 스크립트를 이용해 Partial 업데이트를 할 수 있었습니다.
 
-![스크린샷 2019-10-09 오후 8 34 46](https://media.oss.navercorp.com/user/15442/files/413d1800-ead4-11e9-9cb0-f0d911510ce9)
+![image](https://user-images.githubusercontent.com/43809168/66479601-d68ddb80-ead7-11e9-8946-20055b8e57bd.png)
 
-위와 같이 inline으로 작성되어 집니다.
+<center> Painless로 작성된 스크립트의 예시 </center>
 
 하지만 위에서 언급한 Update의 비싼 비용과 마찬가지로, 이 스크립트 쿼리 또한 비용이 비싸다는 것을 알 수 있습니다.
 
