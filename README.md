@@ -65,7 +65,7 @@ Painless Script Language는 ElasticSearch에서 제공하는 동적 스크립트
 
 ![image](https://user-images.githubusercontent.com/43809168/66479601-d68ddb80-ead7-11e9-8946-20055b8e57bd.png)
 
-<center> Painless로 작성된 스크립트의 예시 </center>
+                                  Painless로 작성된 스크립트의 예시
 
 하지만 위에서 언급한 Update의 비싼 비용과 마찬가지로, 이 스크립트 쿼리 또한 비용이 비싸다는 것을 알 수 있습니다.
 
