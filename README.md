@@ -21,7 +21,7 @@ ES에 바뀐 필드를 **부분적**으로 업데이트해야 합니다.
 
 ElasticSearch의 공식문서에 따르면, ElasticSearch에서 Document는 Immutable한 성질을 갖고 있다고 나와있습니다.
 
-이는 Elastic Search가 루씬 라이브러를 사용해 개발된 것과 관련이 있습니다.
+이는 Elastic Search가 루씬 라이브러리를 사용해 개발된 것과 관련이 있습니다.
 
 루씬은 기본적으로 Segment 단위로 문서와 인덱스들을 저장합니다.
 
