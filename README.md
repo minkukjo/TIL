@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/43809168/66479431-739c4480-ead7-11e9-9dc3-a374faf9d948.png)
 
-## Partial Upadte
+## Partial Update
 
 현재 저는 네이버 예약팀에서 진행하는 프로젝트를 위해 ElasticSearch(ES)를 사용하고 있습니다.
 
