@@ -95,3 +95,60 @@ SASL Port와 Mechanism의 경우 아래와 같이 server.properties에 작성하
 
 # SASL/PLAIN Client Configure
 
+위에서 언급했던  것 처럼 Client에서는 2가지 방법이 있습니다.
+
+JAAS 파일을 만드는 경우 아래와 같이 작성 합니다.
+
+```
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+    username="alice" \
+    password="alice-secret";
+```
+
+Spring Framework를 사용할 경우 다음과 같이 명시하여 Map으로 만듭니다.
+
+```kotlin
+private fun baseConfigs(): Map<String, Any> {
+        val saslUsername = nClavisService.requestKeyValue(kafkaBookingProperties.usernameKey)
+        val saslPassword = nClavisService.requestKeyValue(kafkaBookingProperties.passwordKey)
+
+        return mapOf(
+            ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to kafkaBookingProperties.bootstrapServers,
+            ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG to false,
+            ConsumerConfig.AUTO_OFFSET_RESET_CONFIG to "latest",
+            CommonClientConfigs.SECURITY_PROTOCOL_CONFIG to "SASL_PLAINTEXT",
+            SaslConfigs.SASL_MECHANISM to "PLAIN",
+            SaslConfigs.SASL_JAAS_CONFIG to """
+                org.apache.kafka.common.security.plain.PlainLoginModule required
+                username="${saslUsername!!.valueForString}"
+                password="${saslPassword!!.valueForString}";
+            """.trimIndent()
+```
+
+그 후 Spring Kafka에서 제공하는 ```DefaultKafkaConsumerFactory```를 이용해
+
+```KafkaConsumer```의 설정들을 입력하여 ```ConsumerFactory```로 만들어 줍니다.
+
+그 후 ```ConsumerFactory```를 ```ConcurrentKafkaListenerContainerFactory```로 만들어 줍니다.
+
+이렇게 만들어진 ```ConcurrentKafkaListenerContainerFactory```의 자세한 설명이 궁금하신 분은
+
+아래의 Spring Reference를 읽어보시면 됩니다.
+
+[Spring 공식 Reference](https://docs.spring.io/spring-kafka/api/org/springframework/kafka/config/ConcurrentKafkaListenerContainerFactory.html)
+
+이렇게 만들어진 ```containerFactory```는 ```@KafkaListener``` Annotation에서 containerFactory = ContainerFactoryName으로 사용 가능하며,
+
+이것이 가능한 이유는, ContainerFactoryName이 Bean으로 등록되어있으면 IoC가 해당 Annotation에 DI를 해주기 때문입니다.
+
+## 마치며
+
+지금까지 Kafka의 인증이 필요한 이유, 어떻게 인증을 구현하는지에 대해서 알아보았습니다.
+
+일반적인 Production 개발에서는 코드상에서 ID/Password가 노출될 수 있기 때문에, 별도의 ```keyStore```를 두어 ID와 Password에 해당하는 key를 주고 실제 값을 받아와 사용하는 것이 일반적입니다.
+
+또한, Production 단계에서 사용자가 Broker에 임의로 Client로 접근하게 허락할 경우 여러가지 보안의 문제가 발생할 수 있습니다.
+
+이 또한 Kafka에서 잘 알고 있기 때문에, 위와 같은 방법으로 SASL에서 몇가지 기능을 지원하고 있으며, 이는 앞으로도 늘어날 것으로 보입니다.
+
+긴 글 읽어주셔서 감사합니다.
