@@ -90,7 +90,7 @@ fun getMethod(url: String): CloseableHttpResponse  {
 
 ## Why React?
 
-다시 리액트로 넘어와서 하던 얘기를 계속 하도록 하겠습니다.
+다시 ```React```로 넘어와서 하던 얘기를 계속 하도록 하겠습니다.
 
 기존의 MVC,MVVM,MVW같은 ```FrameWork```들과 달리 리액트는 **View**에 집중된 ```Library```입니다.
 
@@ -102,7 +102,7 @@ fun getMethod(url: String): CloseableHttpResponse  {
 
 물론 이렇게 하면 어플리케이션 구조가 매우 간단해지긴 하겠습니다만 이렇게 되면 성능에 문제가 생기게 됩니다.
 
-웹 브라우저에서 DOM에 변화가 일어날때 마다 CSS를 다시 연산하고, 레이아웃을 구성하여 페이지를 리페인트하는 과정은 시간이 많이 걸리는 작업입니다.
+웹 브라우저에서 ```DOM```에 변화가 일어날때 마다 ```CSS```를 다시 연산하고, 레이아웃을 구성하여 페이지를 리페인트하는 과정은 시간이 많이 걸리는 작업입니다.
 
 그래서 리액트는 이를 해결하기 위해 ```Virtual DOM```이라는 개념을 도입합니다.
 
@@ -110,9 +110,9 @@ fun getMethod(url: String): CloseableHttpResponse  {
 ![QRtqIui](https://user-images.githubusercontent.com/43809168/67155773-25e1d080-f350-11e9-8e3d-3a9ac92737ff.png)
 
 
-```Virtual DOM```이란 기존의 DOM과 같은 모양의 DOM을 메모리에 저장해놓고 있다가, 변화가 생기면
+```Virtual DOM```이란 기존의 ```DOM```과 같은 모양의 ```DOM```을 메모리에 저장해놓고 있다가, 변화가 생기면
 
-실제 DOM에 바뀐 부분만 변경하는 방법입니다.
+실제 ```DOM```에 바뀐 부분만 변경하는 방법입니다.
 
 이렇게 하면 마치 처음부터 다시 렌더링하는 것처럼 보이는 작업이 최적의 자원을 사용하는 효과를 낼 수 있게 됩니다.
 
