@@ -76,7 +76,7 @@ fun getMethod(url: String): CloseableHttpResponse  {
 
 하지만 ```FrameWork```는 그렇지 않습니다. ```FrameWork```가 설계되어있으면 우리는 이 ```FrameWork```에 우리가 만든 함수를 넘깁니다.
 
-그러면 ```FrameWork```는 이 함수를 ```invoke```하여 실행해줍니다. 
+그러면 ```FrameWork```는 이 함수를 ```Invoke```하여 실행해줍니다. 
 
 ```Spring FrameWork```를 사용해보신 분이라면 ```IoC Container```를 떠올리면 이해가 빠를 것 같네요.
 
@@ -85,7 +85,7 @@ fun getMethod(url: String): CloseableHttpResponse  {
 이는 ```Spring FrameWork```가 해주는 것이지요.
 
 
-**즉 둘의 가장 큰 차이는 ```inversion of control``` 여부 입니다.**
+**즉 둘의 가장 큰 차이는 ```Inversion Of Control``` 여부 입니다.**
 
 
 ## Why React?
