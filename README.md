@@ -40,7 +40,7 @@
 
 ```kotlin
 fun getMethod(url: String): CloseableHttpResponse  {
-	val httpClient = HttpClients.createDefault()
+    val httpClient = HttpClients.createDefault()
     val httpGetp = httpGet(url)
     val httpResponse = httpClient.execute(httpGet)
     return httpResponse
