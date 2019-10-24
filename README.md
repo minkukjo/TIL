@@ -92,7 +92,7 @@ fun getMethod(url: String): CloseableHttpResponse  {
 
 다시 ```React```로 넘어와서 하던 얘기를 계속 하도록 하겠습니다.
 
-기존의 MVC,MVVM,MVW같은 ```FrameWork```들과 달리 리액트는 **View**에 집중된 ```Library```입니다.
+기존의 MVC,MVVM,MVW같은 디자인 패턴을 사용하는 ```FrameWork```들과 달리 리액트는 **View**에 집중된 ```Library```입니다.
 
 그래서 페이스북 개발자들은 기존의 데이터가 변할때 마다 어떤 변화를 줄지를 고민하는 것이 아닌
 
