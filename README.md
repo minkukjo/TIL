@@ -2,6 +2,7 @@
   <img src="https://user-images.githubusercontent.com/43809168/67631249-25f54980-f8d7-11e9-875a-d84564f880a0.png">
 </p>
 
+# 작성 중...
 
 # THE JAVA
 본 내용은 ```백기선```님의 ```Inflern``` 강좌인 ```The Java, 코드를 조작하는 다양한 방법```을 학습하고 정리한 내용입니다.
