@@ -1,3 +1,5 @@
+<img width="528" alt="스크린샷 2019-11-22 오후 9 16 32" src="https://user-images.githubusercontent.com/43809168/69430054-48647080-0d78-11ea-8537-1b0cba108c76.png">
+
 # Index란?
 
 RDBMS에서 검색 속도를 높이기 위해 사용하는 기술 입니다.
