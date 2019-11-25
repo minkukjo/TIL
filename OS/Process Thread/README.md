@@ -84,7 +84,29 @@ Multi Process의 경우 Context Switching이 발생하면 기존 **Cache**에 �
 
 문제는 이후 얼마 동안 TLB가 **Cashe**에 Hit되지 않을 확률이 높아지게 되고, 이는 메모리 엑세스 비용이 증가로 이어지게 됩니다.
 
-그러나 Multi Thread는 Stack을 제외한 Heap,Text,Data 영역을 공유하기 때문에 위와 같은 현상이 발생하지 않습니다.
+![TLB0](https://user-images.githubusercontent.com/43809168/69537543-b3ee4e00-0fc3-11ea-9137-c3f6bcad1207.png)
+
+![TLB1](https://user-images.githubusercontent.com/43809168/69537545-b51f7b00-0fc3-11ea-8313-f0e27f7f5a9b.png)
+
+(0) TLB : Hit, Cache : Hit, Virtual Memory -> Hit => Best Case 메모리 접근이 일어나지 않는다. 메모리 접근 총 0회
+
+(1) TLB : Hit, Cache : Miss, Virtual Memory -> Hit => TLB가 Hit이므로 Page Table에 접근하지는 않지만, Cache가 Miss이므로 페이지를 읽기 위해 메모리에 1회 접근한다. 메모리 접근 총 1회
+
+(2) TLB : Miss, Cache : Hit, Virtual Memory -> Hit => TLB가 Miss이므로, Page Table에 접근해 가상 주소 -> 실제 주소 변환 작업이 필요하다. 여기에 메모리 접근을 1회 하고, 만약 Page Table에 접근했는데 valid bit이 0 이라면 Page Fault Exception이 발생하고 종료된다. 그러나 Cache가 Hit되었다면 더이상의 메모리 접근은 없다. 메모리 접근 총 1회
+
+(3) TLB : Miss, Cache : Miss, Virtual Memory -> Hit => TLB Miss 후 페이지 테이블을 가져와야 하므로 메모리 접근 1회, Cache Miss로 인해 페이지를 가져와야 하므로 메모리 접근 1회. 메모리 접근 총 2회
+
+(4) TLB : MIss, Cache : Miss, Virtual Memory -> Miss => Worst Case. 모든 경우에서 Miss가 났기 때문에 OS가 제어권을 넘겨받게 된다. 이 경우 디스크로 부터 페이지를 가져와야 하기 때문에 시간이 오래걸려 성능이 저하된다.
+
+(5),(6),(7)은 불가능한 경우이다.
+
+이러한 이유로 Cache를 비우는 Process의 Context Switching이 더 비싼 비용이 들게 됩니다.
+
+처음에 Cache를 비우기 때문이라는 이유를 봤을 때는 Cache를 비우는데 시간이 많이 걸려서 느린건가? 라고 생각했었습니다만,
+
+사실은 그게 아니라 Cache가 없기 때문에 Cache Miss 비율이 높아지게 되고, 그로 인한 메모리 접근에 시간이 많이 걸리게 되는 것이 이유였습니다.
+
+Multi Thread는 Stack을 제외한 Heap,Text,Data 영역을 공유하기 때문에 위와 같은 현상이 발생하지 않습니다.
 
 **이것이 Multi Thread에서 Context Switching이 더 빠른 이유입니다.**
 
