@@ -94,7 +94,7 @@ Multi Process의 경우 Context Switching이 발생하면 기존 **Cache**에 �
 
 (2) TLB : Miss, Cache : Hit, Virtual Memory -> Hit => TLB가 Miss이므로, Page Table에 접근해 가상 주소 -> 실제 주소 변환 작업이 필요하다. 여기에 메모리 접근을 1회 하고, 만약 Page Table에 접근했는데 valid bit이 0 이라면 Page Fault Exception이 발생하고 종료된다. 그러나 Cache가 Hit되었다면 더이상의 메모리 접근은 없다. 메모리 접근 총 1회
 
-(3) TLB : Miss, Cache : Miss, Virtual Memory -> Hit => TLB Miss 후 페이지 테이블을 가져와야 하므로 메모리 접근 1회, Cache Miss로 인해 페이지를 가져와야 하므로 메모리 접근 1회. 메모리 접근 총 2회
+(3) TLB : Miss, Cache : Miss, Virtual Memory -> Hit => TLB Miss 후 페이지 테이블을 가져와야 하므로 메모리 접근 1회, Cache Miss로 인해 페이지를 가져와야 하므로 메모리 접근 1회. 메모리 접근 총 2회
 
 (4) TLB : MIss, Cache : Miss, Virtual Memory -> Miss => Worst Case. 모든 경우에서 Miss가 났기 때문에 OS가 제어권을 넘겨받게 된다. 이 경우 디스크로 부터 페이지를 가져와야 하기 때문에 시간이 오래걸려 성능이 저하된다.
 
