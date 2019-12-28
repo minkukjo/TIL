@@ -66,7 +66,53 @@ Recoloring은 평균 O(1)이며 최악의 경우 O(log n)만큼의 시간이 걸
 
 ## Restructuring
 
-Double Red 현상이 발생하고, 내 부모의 형제가 Black인 경우라면
+Double Red 현상이 발생하고, 내 부모의 형제가 Black인 경우라면 Restructuring을 진행한다.
+
+Restructuring은 다음과 같이 이루어진다.
+
+1. 나와 부모, 그리고 부모의 부모를 오름차순으로 정렬
+2. 가운데 있는 값을 부모로 만들고 나머지 둘을 자식으로 만듦.
+3. 올라간 가운데 값을 Black으로 하고 두 자식을 빨강으로 만든다.
+
+<img width="745" alt="스크린샷 2019-12-29 오전 12 01 37" src="https://user-images.githubusercontent.com/43809168/71545444-699b2b00-29ce-11ea-8481-884be23a0a67.png">
+
+위의 예제를 보자.
+
+4 - 7 - 6 를 정렬하면
+
+4 - 6 -7이 된다.
+
+이때 6을 Black으로 바꾸고 4,7을 6의 자식으로 둔다.
+
+<img width="859" alt="스크린샷 2019-12-29 오전 12 02 53" src="https://user-images.githubusercontent.com/43809168/71545461-92232500-29ce-11ea-8baa-6e325ccaaae3.png">
+
+위와 같은 형태가 된다.
+
+그 후 기존 4의 자식인 2를 추가해주면
+
+<img width="868" alt="스크린샷 2019-12-29 오전 12 03 56" src="https://user-images.githubusercontent.com/43809168/71545477-b8e15b80-29ce-11ea-8fee-a0d928b622ff.png">
+
+<Restructuring을 거친 Red Black Tree>
+
+Restructuring 자체 시간은 O(1)이지만 Restructuring은 특정 노드를 Insertion한 후 일어나므로 총 수행시간은 O(log n)이다. 지금 현재 노드가 들어갈 위치를 찾아야하기 때문이다.
+
+Restructuring은 다른 서브 트리에 영향을 미치지 않기 때문에 1번이면 끝난다.
+
+## 결론
+
+Red Black Tree에 새로운 노드를 삽입하는 경우 Restructuring, Recoloring 모두 O(log n)가 걸리기 때문에 Red Black Tree는 항상 O(log n)을 보장한다는 것을 알 수 있다.
+
+Java8버전 부터 HashMap에서는 하나의 해시 버킷에 8개 이상의 리스트가 있는 경우 리스트를 트리로 변경한다.
+
+버킷의 개수가 삭제되는 경우 6개가 되면 다시 트리를 리스트로 변경한다.
+
+이때 사용되는 트리가 Red Black Tree이다.
+
+Red Black Tree를 사용함으로써 Separate Chaining에서의 get Method의 성능을 끌어올릴 수 있었다.
+
+(Java 7의 HashMap) 시간 복잡도 O(N/M)
+
+(Java 8 Hash Map) 시간 복잡도 O(log N/M)
 
 
 
