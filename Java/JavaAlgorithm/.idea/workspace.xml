@@ -36,8 +36,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="RepeatedString" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.RepeatedString.RepeatedString" />
+    <configuration name="Array2D" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Array2D.Array2D" />
       <module name="JavaAlgorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -54,7 +54,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577449853835</updated>
-      <workItem from="1577449855170" duration="4939000" />
+      <workItem from="1577449855170" duration="5628000" />
+      <workItem from="1577546520800" duration="61000" />
+      <workItem from="1577546608236" duration="594000" />
     </task>
     <servers />
   </component>
