@@ -36,8 +36,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="SherlockandAnagrams" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.HashMaps.SherlockandAnagrams.SherlockandAnagrams" />
+    <configuration name="SherlockandAnagramsAgain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.HashMaps.SherlockandAnagrams.SherlockandAnagramsAgain" />
       <module name="JavaAlgorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -57,7 +57,7 @@
       <workItem from="1577449855170" duration="5628000" />
       <workItem from="1577546520800" duration="61000" />
       <workItem from="1577546608236" duration="594000" />
-      <workItem from="1577615655281" duration="9470000" />
+      <workItem from="1577615655281" duration="10588000" />
     </task>
     <servers />
   </component>
