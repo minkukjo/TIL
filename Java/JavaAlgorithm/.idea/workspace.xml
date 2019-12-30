@@ -22,6 +22,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -36,8 +37,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="SherlockandAnagramsAgain" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.HashMaps.SherlockandAnagrams.SherlockandAnagramsAgain" />
+    <configuration name="FrequencyQueries" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="MAIN_CLASS_NAME" value="main.HashMaps.FrequencyQueries.FrequencyQueries" />
       <module name="JavaAlgorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -57,7 +59,11 @@
       <workItem from="1577449855170" duration="5628000" />
       <workItem from="1577546520800" duration="61000" />
       <workItem from="1577546608236" duration="594000" />
-      <workItem from="1577615655281" duration="10588000" />
+      <workItem from="1577615655281" duration="10682000" />
+      <workItem from="1577685047941" duration="209000" />
+      <workItem from="1577687909330" duration="12207000" />
+      <workItem from="1577707769432" duration="27000" />
+      <workItem from="1577707813772" duration="1032000" />
     </task>
     <servers />
   </component>
@@ -97,7 +103,27 @@
           <line>29</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/HashMaps/CountTriplets/CountTriplets.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/HashMaps/FrequencyQueries/FrequencyQueries.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/HashMaps/FrequencyQueries/FrequencyQueries.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="hashMap.get(data)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
