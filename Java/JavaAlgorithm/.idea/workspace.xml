@@ -37,9 +37,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="FrequencyQueries" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="FraudulentActivityNotifications" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="MAIN_CLASS_NAME" value="main.HashMaps.FrequencyQueries.FrequencyQueries" />
+      <option name="MAIN_CLASS_NAME" value="main.Sorting.FraudulentActivityNotifications.FraudulentActivityNotifications" />
       <module name="JavaAlgorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -63,7 +63,8 @@
       <workItem from="1577685047941" duration="209000" />
       <workItem from="1577687909330" duration="12207000" />
       <workItem from="1577707769432" duration="27000" />
-      <workItem from="1577707813772" duration="1032000" />
+      <workItem from="1577707813772" duration="1120000" />
+      <workItem from="1577787496642" duration="6826000" />
     </task>
     <servers />
   </component>
@@ -118,11 +119,22 @@
           <line>49</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Sorting/FraudulentActivityNotifications/FraudulentActivityNotifications.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Sorting/FraudulentActivityNotifications/FraudulentActivityNotifications.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="hashMap.get(data)" language="JAVA" />
+        <watch expression="i" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
