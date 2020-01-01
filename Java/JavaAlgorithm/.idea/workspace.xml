@@ -36,7 +36,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ShelockandValidString">
+    <configuration name="AlternatingCharacters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.AlternatingCharacters.AlternatingCharacters" />
+      <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.AlternatingCharacters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FraudulentActivityNotifications" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="MAIN_CLASS_NAME" value="main.Sorting.FraudulentActivityNotifications.FraudulentActivityNotifications" />
@@ -45,6 +58,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MakingAnagrams" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.MakingAnagrams.MakingAnagrams" />
+      <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.MakingAnagrams.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShelockandValidString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.ShelockandtheValidString.ShelockandValidString" />
+      <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.ShelockandtheValidString.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ShelockandValidString" />
+        <item itemvalue="Application.AlternatingCharacters" />
+        <item itemvalue="Application.MakingAnagrams" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -64,7 +110,8 @@
       <workItem from="1577687909330" duration="12207000" />
       <workItem from="1577707769432" duration="27000" />
       <workItem from="1577707813772" duration="1120000" />
-      <workItem from="1577787496642" duration="6826000" />
+      <workItem from="1577787496642" duration="6857000" />
+      <workItem from="1577879748401" duration="7291000" />
     </task>
     <servers />
   </component>
@@ -129,13 +176,12 @@
           <line>22</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/String/ShelockandtheValidString/ShelockandValidString.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="hashMap.get(data)" language="JAVA" />
-        <watch expression="i" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
