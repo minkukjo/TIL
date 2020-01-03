@@ -36,7 +36,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ShelockandValidString">
+  <component name="RunManager" selected="Application.CommonChild">
     <configuration name="AlternatingCharacters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.String.AlternatingCharacters.AlternatingCharacters" />
       <module name="JavaAlgorithm" />
@@ -50,23 +50,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FraudulentActivityNotifications" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="MAIN_CLASS_NAME" value="main.Sorting.FraudulentActivityNotifications.FraudulentActivityNotifications" />
+    <configuration name="CommonChild" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.CommonChild.CommonChild" />
       <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.CommonChild.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MakingAnagrams" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.String.MakingAnagrams.MakingAnagrams" />
+    <configuration name="FraudulentActivityNotifications" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="MAIN_CLASS_NAME" value="main.Sorting.FraudulentActivityNotifications.FraudulentActivityNotifications" />
       <module name="JavaAlgorithm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.String.MakingAnagrams.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -84,11 +84,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SpecialStringAgain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.SpecialStringAgain.SpecialStringAgain" />
+      <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.SpecialStringAgain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpecialStringAgainRetry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.String.SpecialStringAgain.SpecialStringAgainRetry" />
+      <module name="JavaAlgorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.String.SpecialStringAgain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CommonChild" />
+        <item itemvalue="Application.SpecialStringAgainRetry" />
+        <item itemvalue="Application.SpecialStringAgain" />
         <item itemvalue="Application.ShelockandValidString" />
         <item itemvalue="Application.AlternatingCharacters" />
-        <item itemvalue="Application.MakingAnagrams" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +139,9 @@
       <workItem from="1577707769432" duration="27000" />
       <workItem from="1577707813772" duration="1120000" />
       <workItem from="1577787496642" duration="6857000" />
-      <workItem from="1577879748401" duration="7291000" />
+      <workItem from="1577879748401" duration="7396000" />
+      <workItem from="1577974481899" duration="2027000" />
+      <workItem from="1578035946770" duration="3993000" />
     </task>
     <servers />
   </component>
@@ -178,10 +208,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/String/ShelockandtheValidString/ShelockandValidString.java</url>
-          <line>16</line>
+          <line>30</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/String/SpecialStringAgain/SpecialStringAgain.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/String/SpecialStringAgain/SpecialStringAgainRetry.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/String/CommonChild/CommonChild.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="s.charAt(i)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
