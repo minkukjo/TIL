@@ -60,8 +60,100 @@ IoC라는 의미는 대다수 프레임워크에 이를 적용한다.
 
 일반적으로는 이 BeanFactory를 확장한 Applciation Context를 주로 사용한다. 
 
+## AOP
+
+<img width="477" alt="스크린샷 2020-01-05 오전 1 33 38" src="https://user-images.githubusercontent.com/43809168/71768655-6f0eed00-2f5b-11ea-9508-c893603f05ec.png">
+
+
+Aspect Oriented Programming의 약자로 관점지향 프로그래밍라고 부른다.
+
+관점 지향 프로그래밍이란 어떤 로직을 기준으로 **핵심적 관점**과 **부가적 관점**으로 나누어 각각 모듈화하겠다는 것이다.
+
+**핵심적 관점**이란 비즈니스로직을 의미한다. 
+
+**부과적 관점**이란 핵심 비즈니스로직을 실행하기 위해 행해지는 데이터베이스 연결,로깅, 파일 입출력 등을 예로 들 수 있다.
+
+좀 더 구체적인 예시를 들어보자면,
+
+특정 비즈니스 로직의 실행시간을 알고싶다고 하자.
+
+그러면 비즈니스 로직의 앞,뒤에 실행시간을 계산하는 코드가 들어가게 된다.
+
+그러나 이러한 실행시간을 계산하는 코드는 재사용될 여지가 많으며 매 비즈니스 로직마다 이러한 코드를 구현하는 것은 시간이 낭비된다.
+
+때문에 실행시간 계산 로직을 모듈화 하여 사용할 수 있게하는 것이 AOP이다.
+
+스프링의 AOP는 프록시 패턴을 기반으로 한다.
+
+## 특징
+
+Spring AOP의 특징은 다음과 같다.
+
+```
+
+Bean만 AOP가 적용 가능하다.
+
+AOP를 사용하는 이유는 부가기능을 추가하기 위함이다.
+
+JDK Dynamic Proxy와 CGlib를 사용한다.
+
+JDK Dynamic Proxy와 CGlib의 차이는 무엇일까?
+
+```
+
+## JDK Dynamic Proxy
+
+```java
+public class Proxy implements Something
+```
+
+JDK Dynamic Proxy는 Java Reflection 패키지의 Proxy 클래스를 통해 생성된 객체를 의미한다.
+
+JDK Dynamic Proxy는 인터페이스로 구현되어져야 하며 타겟클래스와 프록시 클래스 모두 인터페이스에 의해 구현되어야 한다.
+
+## CGlib
+
+```java
+public class Proxy
+```
+
+CGlib의 경우 인터페이스가 필요하지 않다. 왜냐하면 프록시 클래스는 타겟 클래스의 자식이 되기 때문이다.
+
+CGlib가 JDK Dynamic Proxy보다 성능이 더 좋다고 한다.
+
+그래서 Spring boot에서도 trasaction 대상의 AOP는 기본 CGlib이다.
+
+## 실제 사용
+
+```java
+@Component
+@Aspect
+public class PerfAspect {
+
+  @Around("execution(* com.saelobi..*.EventService.*(..))")
+  public Object logPerf(ProceedingJoinPoint pjp) throws Throwable{
+    long begin = System.currentTimeMillis();
+    Object retVal = pjp.proceed(); // 메서드 호출 자체를 감쌈
+    System.out.println(System.currentTimeMillis() - begin);
+    return retVal;
+  }
+}
+```
+
+로직의 수행성능을 측정하는 AOP 예제이다.
+
+@Around는 타겟 메서드를 감싸서 특정 기능을 수행하기 위함이다.
+
+execution(* com.saelobi..*.EventService.*(..))는
+
+com.saelobi 아래 패키지 경로의 EventService 객체 내의 모든 메서드에 이 Aspect를 적용하겠다는 의미이다.
+
 
 
 
 ## Reference
 https://asfirstalways.tistory.com/334
+
+https://engkimbs.tistory.com/746
+
+https://stackoverflow.com/questions/10664182/what-is-the-difference-between-jdk-dynamic-proxy-and-cglib
