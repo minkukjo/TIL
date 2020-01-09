@@ -1,4 +1,8 @@
-# Rest API란?
+# REST?
+
+HTTP URI를 통해 자원을 명시하고, HTTP Method를 활용해 자원에 대한 CRUD Operation을 적용하는 것을 의미한다.
+
+REST는 자원 기반의 구조 설계의 중심에 자원이 있고, HTTP Method를 통해 자원을 처리하도록 설계된 아키텍쳐를 의미한다.
 
 웹의 장점을 최대한 활용할 수 있는 아키텍쳐 스타일이며 이를 잘 지킨 아키텍쳐를 **Restful**하다 라고 일반적으로 이야기 한다.
 
@@ -76,6 +80,16 @@ Rest Server는 API를 제공하며 비즈니스 로직 처리와 저장을 담�
 Client는 사용자 인증이나 context(로그인정보, 세션) 등을 직접 관리하고 책임진다.
 
 이러한 구조는 서로간의 의존성을 낮추는 결과를 낳는다.
+
+# REST API
+
+REST하게 짜여진 API를 의미한다.
+
+API란 Applciation Programming Interface의 약자로 프로그램 간의 상호작용을 하는 것을 의미한다.
+
+최근 Open API나 마이크로서비스를 제공하는 업체는 대부분 REST API를 제공하고 있다.
+
+
 
 ## 번외 URI와 URL의 차이
 
