@@ -20,7 +20,7 @@ public class Player{
 }
 ```
 
-그 후 아래와 같이 5명의 게이머를 리스트에 넣어준다.
+Player 클래스의 멤버들을 score가 높은 순으로 정렬하고 싶은 상황이다.
 
 ```java
   List<Player> players = new ArrayList<>();
@@ -31,13 +31,15 @@ public class Player{
   players.add(new Player("Eric", 1018));
 ```
 
-만약 스코어가 높은 순으로 정렬을 수행한다면 Chole가 1등으로, Alice가 꼴찌로 가야 한다.
+이를 위해 ArrayList에 플레이어 5명을 추가하였다.
+
+만약 스코어가 높은 순으로 정렬을 수행한다면 Chole가 1등으로, Alice가 꼴찌가 될 것이다.
 
 Primitive 타입의 경우 일반적인 크기의 비교나 사전 순서 비교를 통해 정렬을 수행할 수 있지만 
 
 사용자 정의 클래스의 경우 Name과 Score 중 어떤 것을 기준으로 정렬을 해야할지 컴파일러는 알 수 없다.
 
-때문에 아래는 오류가 발생한다.
+Comparable 인터페이스나 Comparator 인터페이스를 사용하지 않고 sort를 사용한다면 아래와 오류가 발생한다.
 
 ```java
 Collections.sort(players); // Error!
@@ -58,7 +60,11 @@ public class Player implements Comparable<Player> {
 
 Comparable Interface는 위와 같이 구현 가능하다.
 
-compareTo 메소드를 오버라이딩하여 사용하며, 매개변수인 Player o가 더 큰경우 양수를, 작은 경우 음수를 반환할 것 이므로 Score가 큰 값으로 정렬이 가능하게 된다.
+compareTo 메소드를 오버라이딩하여 사용할 수 있다.
+
+매개변수인 Player o가 더 큰경우 양수를, 작은 경우 음수를 반환할 것 이므로 Score가 큰 값으로 정렬이 가능하게 된다.
+
+이처럼 위와같은 소팅 메소드를 사용하기 위해서 클래스에 Comparable 인터페이스의 compareTo 메소드를 구현하였다.
 
 ## Comparator 구현
 
@@ -80,6 +86,8 @@ Collections.sort(players, comparator);
 ```
 
 구현은 위와 같은 형태로 가능하다.
+
+Comparator는 Comparable과는 달리, 기존 객체의 정렬 방법이 아닌 새롭게 정의된 정렬방법을 사용하고 싶은 경우 주로 사용한다.
 
 ## Lambda
 
