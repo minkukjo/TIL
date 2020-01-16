@@ -90,7 +90,7 @@ static final int hash(Object key) { int h; return (key == null) ? 0 : (h = key.h
 
 ## String의 HashCode
 
-String의 경우 31 소수를 곱하여 해시값을 사용한다.
+String의 경우 소수인 31를 곱하여 해시값을 사용한다.
 
 그 이유는 31N=32N-N인데 32는 2^5이니 어떤 수에 32를 곱한 값은 shift 연산으로 빠르게 구할 수 있다. 따라서 N에 31을 곱한다는 것은 (N<<5)-N와 같다. 즉 머신 코드에서 빠른 연산을 위해 사용하며 String 클래스에서는 각각의 문자마다 31을 곱하여 해시 코드값을 계산한다.
 
