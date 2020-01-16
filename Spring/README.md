@@ -12,7 +12,7 @@
 
 POJO 객체를 중심으로 개발하는 것이 Spring의 주요한 특징이다.
 
-Spring 프레임워크는 자바 엔터프라이즈 개발을 편하게 하기 위해**경량급 오픈소스 웹어플리케이션 프레임워크**이다.
+Spring 프레임워크는 자바 엔터프라이즈 개발을 편하게 하기 위해 개발된 **경량급 오픈소스 웹어플리케이션 프레임워크**이다.
 
 경량급이라는 표현이 붙은 이유는 빠르고 간편하게 어플리케이션을 작성할 수 있고, 생산성과 품질이 뛰어다나는 이유때문에 이러한 특징을 보이고 있다.
 
@@ -148,8 +148,33 @@ execution(* com.saelobi..*.EventService.*(..))는
 
 com.saelobi 아래 패키지 경로의 EventService 객체 내의 모든 메서드에 이 Aspect를 적용하겠다는 의미이다.
 
+## PSA
 
+PSA란 **Portable Service Abstraction**의 약자로 환경의 변화와 관계 없이 항상 일관된 방식의 기술로의 접근 환경을 제공하려는 추상화 구조를 의미한다.
 
+POJO로 개발된 코드는 특정 환경이나 구현 방식에 종속적이지 않아야 한다.
+
+이 PSA는 Spring의 핵심 철학을 가장 잘 보여주는 기술이다.
+
+예를들어, 과거에는 HttpServlet을 상속받아서 doGet(),doPost()를 오버라이딩 하여 사용했었다. 
+
+그런데 Spring Web MVC 의존성 추가를 하면 @Controller 어노테이션으로 훨씬 편하게 개발을 할 수 있게 되었다.
+
+Spring Web MVC는 PSA의 좋은 예이다.
+
+HttpServlet이 어떻게 구현되어있는지 몰라도 Spring Web MVC는 @Controller, @GetMapping 어노테이션을 이용해 개발을 쉽게 할 수 있게 해준다.
+
+또한 특정 기술에 독립적일 수 있는데, Spring Web MVC는 기본적으로 내장 톰캣을 사용한다.
+
+그런데 Spring 5부터 webflux라는 기술이 도입되었다.
+
+Servlet 대신 Reactive로 컨트롤러를 작성할 수 있으며 webflux는 톰캣 대신 네티를 사용한다.
+
+Web MVC의 추상화 계층 덕분에 기존 코드 수정 없이 네티로 변경이 가능하다.
+
+즉 스프링은 특정 기술에 종속되어 개발하는 것을 싫어하기 때문에
+
+우리는 스프링을 이용해서 편하게 웹어플리케이션 개발을 할 수 있는 것 이다!
 
 ## Reference
 https://asfirstalways.tistory.com/334
@@ -157,3 +182,5 @@ https://asfirstalways.tistory.com/334
 https://engkimbs.tistory.com/746
 
 https://stackoverflow.com/questions/10664182/what-is-the-difference-between-jdk-dynamic-proxy-and-cglib
+
+https://jins-dev.tistory.com/entry/Spring-PSAPortable-Service-Abstraction%EC%9D%98-%EA%B0%9C%EB%85%90
