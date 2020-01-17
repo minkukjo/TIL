@@ -54,6 +54,20 @@ MockMvcRequestBuilders를 사용해 설정한 요청 데이터를 perform()의 �
 perform()에서 반환된 ResultActios() 호출
 실행 결과 검증
 
+## 실제 테스트 환경에서?
+
+@MockMvc는 사용시 설정들을 자동으로 올리지 않기 때문에
+
+@Repository나 @Service, @Component 등을 사용할 수 없다.
+
+그래서 만약 실제 환경 MVC 테스트를 진행하고 싶다면
+
+@AutoConfigureMockMvc를 사용해야한다.
+
+@AutoConfigureMockMvc는 @SpringBootTest와 같이 사용해야 한다.
+
+
+
 # Reference
 
 https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html
