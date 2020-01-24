@@ -212,6 +212,42 @@ void quickSort(int[] arr, int l, int r){
 }
 ```
 
+# Dual Pivot Quick Sort
+
+흥미롭게도, Java 7버전 이후부터는 듀얼 Pivot 퀵소트를 사용하고 있다.
+
+간단한 알고리즘이기 때문에 한번 알아보자.
+
+[4 2 5 3 6 10 9 8 7] 이라는 배열이 있다고 가정하자.
+
+Dual Pivot Quick Sort는 배열을 총 3 개로 쪼개는 것을 반복한다.
+
+현재 위의 배열에서 가장 왼쪽의 4가 **Left Pivot**이 되며, 가장 오른쪽의 7이 **Right Pivot**이 된다.
+
+이 Pivot은 Left Pivot > Right Pivot인 경우에 Swap을 수행한다는 규칙이 존재한다.
+
+또한 Left Pivot의 왼쪽에는 Left Pivot 보다 작은 값이 와야 하며, Left Pivot의 오른쪽과 Right Pivot의 중간에는 그 둘의 사이 값들이 와야하며, Right Pivot의 오른쪽에는 Right Pivot보다 큰 값이 와야 한다.
+
+다음과 같은 형태가 된다.
+
+[2 3 "4" 5 6 "7" 10 9 8]
+
+그 후
+
+1번째 하위 배열 : items < LP ==> [ 2 3 ]
+
+2번째 하위 배열 : LP <= items <= RP  ==> [ 5 6 ]
+
+3번째 하위 배열 : items >= RP ==> [ 10 9 8 ]
+
+이 된다.
+
+여기서 1번째 하위 배열과 2번째 하위 배열은 각각 왼쪽 피벗이 오른쪽 피벗보다 작기 때문에 아무 일도 일어나지 않는다.
+
+단 3번째 하위배열의 경우 왼쪽 피벗보다 오른쪽 피벗이 크기 때문에 스왑을 진행한다.
+
+그러면 전체 정렬이 완료된다. 이것이 Dual Pivot Quicksort의 원리이다.
+
 # External Sort
 
 작성 중
@@ -221,3 +257,7 @@ void quickSort(int[] arr, int l, int r){
  https://hsp1116.tistory.com/33
 
  https://medium.com/pocs/locality%EC%9D%98-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C-quick-sort%EA%B0%80-merge-sort%EB%B3%B4%EB%8B%A4-%EB%B9%A0%EB%A5%B8-%EC%9D%B4%EC%9C%A0-824798181693
+
+ https://dev.to/s_awdesh/double-pivot-quick-sort--javas-default-sorting-algorithm-1m4
+
+ https://gwpark.tistory.com/1743
