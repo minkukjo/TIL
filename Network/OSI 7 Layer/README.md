@@ -89,3 +89,7 @@ TCP는 인터넷 프로토콜 (IP )위에 구축되는데 흔히 TCP/IP라고 �
 7계층은 User Interface를 제공하는 계층이다.
 
 7계층의 대표적인 프로토콜로는 DNS,FTP,HTTP가 있다.
+
+## Reference
+
+http://itwiki.kr/w/OSI_7%EA%B3%84%EC%B8%B5
