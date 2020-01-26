@@ -109,8 +109,6 @@ T - Type
 V - Value
 ```
 
-<T>, <K, V>와 같이 제네릭 타입으로 명시되는 이름은 위와같은 의미로 사용하도록 약속되어 있습니다.
-
 # Reference
 
 https://yaboong.github.io/java/2019/01/19/java-generics-1/
