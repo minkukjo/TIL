@@ -20,6 +20,16 @@ Process와 Thread를 알아보도록 하겠습니다.
 - Data : 전역, Static 변수가 저장되는 영역
 - Text : 현재 활동중인 Program Counter( 다음 실행될 기계어 코드의 주소를 지정하는 레지스터 ) 값, Processor register( 매우 빠른 기억 저장 공간 )의 내용물을 포함한다.
 
+# Process 생성 과정
+
+프로세스가 생성이 되려면 파일 시스템에 존재하는 exe를 실행해야 한다.
+
+그 후 운영체제는 해당 .exe 파일의 path 정보를 획득한다.
+
+프로세스는 Memory Context로써 Code Segment, Data Segment, Stack Segment, Heap Segment를 운영체제에 의해 할당받는다.
+
+생성된 프로세스는 PCB(Process Controll Block)을 생성하고 Ready Queue에 Push 한다.
+
 **Thread란**
 
 - Thread는 경량 Process라고도 불린다.
@@ -119,3 +129,5 @@ Multi Thread는 Stack을 제외한 Heap,Text,Data 영역을 공유하기 때문�
 [https://stackoverflow.com/questions/5440128/thread-context-switch-vs-process-context-switch](https://stackoverflow.com/questions/5440128/thread-context-switch-vs-process-context-switch)
 
 [https://m.blog.naver.com/PostView.nhn?blogId=xowns4817&logNo=221182043348&proxyReferer=https%3A%2F%2Fwww.google.com%2F](https://m.blog.naver.com/PostView.nhn?blogId=xowns4817&logNo=221182043348&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
+https://hack-gogumang.tistory.com/256
