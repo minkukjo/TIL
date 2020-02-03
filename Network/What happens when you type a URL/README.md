@@ -185,7 +185,7 @@ It will also pass information taken from cookies the browser has in store for th
 
 - **3xx**는 다른 URL로 클라이언트를 리다이렉션한다.
 
-- **4xx**는 클라리언트 측에서 에러가 났음을 나타낸다.
+- **4xx**는 클라이언트 측에서 에러가 났음을 나타낸다.
 
 - **5xx**는 서버측에서 에러가 났음을 나타낸다.
 
