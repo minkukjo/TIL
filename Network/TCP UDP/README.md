@@ -291,7 +291,7 @@ TCP Tahoe는 Slow Start를 사용한 혼잡 제어 정책의 초기 버전으로
 
 Tahoe는 임계점까지는 Slow Start 방식을 사용하다가, 그 이후부터는 AIMD를 사용하는 방식이다.
 
-그러나 Tahoe 방식은 혼잡 상황이 발생했을때 윈도우 크기가 1로 줄어들기 댸문에 1부터 다시 증가시키는 것은 낭비일 수 있다.
+그러나 Tahoe 방식은 혼잡 상황이 발생했을때 윈도우 크기가 1로 줄어들기 때문에 1부터 다시 증가시키는 것은 낭비일 수 있다.
 
 그래서 나온 방법이 Reno 방식이다.
 
@@ -424,4 +424,4 @@ https://rain-bow.tistory.com/entry/%EC%8B%A0%EB%A2%B0%EC%A0%81%EC%9D%B8-%EB%8D%B
 
 https://evan-moon.github.io/2019/11/22/tcp-flow-control-error-control/
 
-https://www.slideshare.net/GondweBenard/module15
+https://www.slideshare.net/GondweBenard/module15~~~~

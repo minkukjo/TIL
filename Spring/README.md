@@ -89,7 +89,6 @@ Aspect Oriented Programming의 약자로 관점지향 프로그래밍라고 부�
 Spring AOP의 특징은 다음과 같다.
 
 ```
-
 Bean만 AOP가 적용 가능하다.
 
 AOP를 사용하는 이유는 부가기능을 추가하기 위함이다.
