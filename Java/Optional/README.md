@@ -23,7 +23,7 @@ val name:String? = "Minkuk"
 ```
 ?타입을 붙이는 것을 예로 들 수 있겠다.
 
-Java 또한 존재할지 안할지 모르는 값을 제어할 수 있는 **java.util.Optional<T>**라는 새로운 클래스를 도입하게 된다.
+Java 또한 존재할지 안할지 모르는 값을 제어할 수 있는 java.util.Optional< T >라는 새로운 클래스를 도입하게 된다.
 
 ## Optional?
 
