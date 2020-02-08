@@ -20,7 +20,7 @@ WAS가 DB 서버에 접근하기 위해서는 다음과 같은 과정을 거친�
 
 Connection Pool의 구현체는 다음과 같은 역할을 한다.
 
-1. WAS가 실행디ㅗ면서 미리 일정량의 DB Connection 객체를 생성하고 Pool 이라는 공간에 저장한다.
+1. WAS가 실행되면서 미리 일정량의 DB Connection 객체를 생성하고 Pool 이라는 공간에 저장한다.
 2. HTTP 요청에 따라 필요할 때 Pool에서 Connection 객체를 가져다 쓰고 반환한다.
 3. 이와 같은 방식으로 HTTP 요청 마다 Connection 객체를 넘겨주기 때문에 객체 생성 비용이 줄어들게 된다.
 
