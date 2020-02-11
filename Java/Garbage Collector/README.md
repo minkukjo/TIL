@@ -19,7 +19,9 @@ Heap 영역은 다시 5개의 영역으로 나뉘어 진다.
 
 # Heap Area
 
-힙 영역은 5개로 나뉘어진다. Eden,survivor1, survivor2까지의 영역에 일어나는 GC를 Minor GC라고 하며, Old 영역에 일어나는 GC를 Major GC(Full GC)라고 부른다.
+힙 영역은 5개로 나뉘어진다. Eden,survivor1, survivor2까지의 영역에 일어나는 GC를 Minor GC라고 하며, Old 영역에 일어나는 GC를 Major GC라고 부른다.
+
+만약 두 영역에 모두 GC가 일어난다면 그때는 Full GC라고 부른다.
 
 우선 **Minor GC**가 어떻게 작동하는지 부터 알아보자
 
@@ -55,13 +57,17 @@ Young 영역은 Eden과 두개의 Surviovr으로 이루어져 있다.
 
 Young 영역의 GC를 수행할 때에는 Old 영역에 있는 모든 객체 참조를 확인하지 않고 카드 테이블을 보고 GC 대상인지 식별한다.
 
-# Old 영역 GC (Major GC, Full GC)
+# Old 영역 GC (Major GC)
 
 Old 영역 또한 데이터가 가득차면 GC를 실행한다.
 
-앞서 이야기한 Stop-The-World 현상은 이 Full GC에서 발생한다.
+Stop-The-World 현상은 Full GC에서 발생한다.
 
-때문에 GC 튜닝을 하기 위해서는 JVM이 제공하는 Full GC 방식들에 대해서 알 필요가 있다.
+즉, Major Minor 모두 일어난다는 이야기다.
+
+GC를 튜닝한다는 것은 이 Stop-The-World을 줄인다는 의미이다.
+
+때문에 GC 튜닝을 하기 위해서는 JVM이 제공하는 Major GC 방식들에 대해서 알 필요가 있다.
 
 JDK 7버전 기준으로 5가지 GC가 존재한다.
 

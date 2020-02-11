@@ -16,7 +16,7 @@ WAS가 DB 서버에 접근하기 위해서는 다음과 같은 과정을 거친�
 
 웹 어플리케이션은 HTTP 요청에 따라 Thread를 생성하고 대부분의 비즈니스 로직은 DB 서버로부터 데이터를 얻게 된다.
 
-이러한 과정을 거치지 않기 위한 기술이 바로 **DBCP(Database Connection Pool) 기술이다.
+이러한 과정을 거치지 않기 위한 기술이 바로 **DBCP**(Database Connection Pool)이다.
 
 Connection Pool의 구현체는 다음과 같은 역할을 한다.
 
