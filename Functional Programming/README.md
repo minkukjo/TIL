@@ -142,6 +142,145 @@ Kotlin과 같은 함수형 패러다임 언어에서는 **변수에 함수를 �
 
 반면 Java에서는 위의 조건들을 만족할 수 없기 때문에 1급 객체라고 부르지 않는다.
 
+## Lazy Evaluation
+
+직역하자면 **게으른 연산**이라는 뜻의 이 기능은 함수형 프로그래밍에서 보여주는 특징 중 하나이다.
+
+직접 이 Lazy Evaluation이 어떻게 동작하는지 봐보자.
+
+```java
+
+final List<Integer> list = Array.asList(1,2,3,4,5,6,7,8,9,10);
+
+System.out.println(
+  list.stream()
+    .filter(i -> i<6)
+    .filter(i -> i%2 == 0)
+    .map(i -> i*10)
+    .collect(Collection.toList())
+);
+```
+
+위와 같이 stream API를 이용한 연산을 할 때 결과로는
+
+20,40이 출력이 된다.
+
+만약 함수형 프로그래밍을 모른다면 위 코드의 동작 방식을 다음과 같이 이해할 것이다.
+
+1. 1~10까지 구한 요소들 중 6보다 작은 값들을 다 찾고
+2. 그 값(1번에서 구한 결과값)중에서 짝수인 값들을 구해서
+3. 2번에서 구한 결과값에 10씩 곱해준다.
+
+라고 생각할 수 있지만 실제 함수형 프로그래밍의 연산 방법은 위와 다르다.
+
+위와 같은 연산 방법을 Eager Evaluation( 조급한 연산 )이라고 부른다.
+
+실제 동작 과정을 알아보기 위해 아래와 같은 코드를 작성하였다.
+
+```java
+final List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+System.out.println(
+    list.stream()
+        .filter(i -> {
+            System.out.println("i < 6");
+            return i<6;
+        })
+        .filter(i -> {
+            System.out.println("i%2 == 0");
+            return i%2==0;
+        })
+        .map(i -> {
+            System.out.println("i = i*10");
+            return i*10;
+        })
+        .collect(Collectors.toList())
+);
+```
+
+위의 코드 결과는 다음과 같은 결과를 출력한다.
+
+```
+i < 6
+i%2 == 0
+i < 6
+i%2 == 0
+i = i*10
+i < 6
+i%2 == 0
+i < 6
+i%2 == 0
+i = i*10
+i < 6
+i%2 == 0
+i < 6
+i < 6
+i < 6
+i < 6
+i < 6
+[20, 40]
+```
+
+결과를 보면 생각보다 짧은 것을 알 수 있다.
+
+위 코드는 다음과 같이 동작한다.
+
+1. 6보다 작은지 검사한다. 만약 false라면 2,3번을 건너뛰고 다음 요소로 진행한다.
+
+2. 짝수인지 검사한다. 만약 false라면 3번을 건너뛰고 다음 요소를 진행한다.
+
+3. 요소에 10을 곱해준다.
+
+위와 같은 방식의 연산 방법을 Lazy Evaluation이라고 부른다.
+
+Lazy Evaluation은 **불필요한 연산을 피한다**라는 철학을 갖고 있다.
+
+해결해야할 문제들 (filter 2개)가 주어지더라도 마지막 문제를 제공받을 때 까지 게으르게 기다리다가 마지막 문제를 알게 되면 그때 가서야 연산을 시작한다는 의미이다.
+
+아래의 예시를 보자.
+
+```java
+Stream<Integer> stream = Stream.iterate(1,n -> n+1)
+            .limit(6)
+            .peek(System.out::println) // 스트림을 순회하며 하나씩 요소를 꺼내 출력하는 구문
+            .filter(number -> number%2 == 0);
+```
+
+Java의 Stream은 기본적으로 게으른 연산을 지원한다.
+
+Stream에서는 위의 limit이나 peek, filter는 중간 연산 메소드라고 부른다.
+
+중간 연산 메소드는 계속해서 Stream을 반환하며 Stream이 이어지면서 연산하는 방식을 갖고 있다.
+
+중간 연산의 마지막은 Stream을 종료하는 메소드를 호출하는데 이 메소드의 이름을 **최종 연산 메소드**라고 부른다.
+
+위의 Stream에서는 최종 연산 메소드가 없기 때문에 peek이라는 Stream 메소드가 있음에도 불구하고 실행시 아무런 값도 찍히지 않는다.
+
+```java
+Stream<Integer> stream = Stream.iterate(1,n -> n+1)
+            .limit(6)
+            .peek(System.out::println)
+            .filter(number -> number%2 == 0);
+
+stream.collect(toList());
+```
+
+하지만 마지막에 최종 연산 메소드인 collect()를 호출하면 비로소 중간 연산들이 수행되게 된다.
+
+이러한 연산 방식을 사용하기 때문에 기존의 조급한 연산보다 함수형 프로그래밍에서의 게으른 연산의 성능이 더 뛰어난 것이다.
+
+조급한 연산과 게으른 연산을 한눈에 볼 수 있는 움짤이 아래에 있다.
+
+![9905FD465C4A993D20](https://user-images.githubusercontent.com/43809168/74427167-e65c6880-4e99-11ea-8b86-9d2b60a1249b.gif)
+
+<center>< Eager Evaluation ></center>
+
+![99CC3B505C4A994A1C](https://user-images.githubusercontent.com/43809168/74427168-e6f4ff00-4e99-11ea-96b6-ab4ebe3024d2.gif)
+
+<center>< Lazy Evaluation ></center><br>
+
+우리가 간단히 생각해보더라도 Lazy Evaluation이 연산에 더 뛰어난 성능을 보인다는 것을 한눈에 쉽게 알 수 있다.
+
 ## Kotlin에서는 왜 함수형 프로그래밍을?
 
 Kotlin에서 함수형 프로그래밍과 객체지향 프로그래밍을 더한 멀티패러다임형 프로그래밍을 지원하는 이유는, 함수형 프로그래밍의 장점과 객체지향 프로그래밍의 장점을 모두 더하고 싶었기 때문이다.
@@ -161,9 +300,25 @@ Java의 대안으로 Scala가 있지만 우리는 Scala는 철저히 학문을 �
 
 ## 필자 여담
 
-실제로 Java 쓰다가 Kotlin 쓰면 Java로 돌아가기 힘들다..
+함수형 언어는 아주 매력적인 프로그래밍 패러다임이다.
 
-그만큼 Kotlin은 쉽고 직관적이며 매력적인 언어다.
+기본적으로 함수형 프로그래밍에서의 모든 값들은 불변성을 갖고 있다.
+
+이를 통해 예상치 못한 곳의 변화로 인한 오류를 최대한 제거하였다.
+
+순수 함수는 함수 내부의 불변성을 보장하여 함수가 단일 책임을 갖게 하였다.
+
+이를 통해 순수함수로 함수 내부의 오류를 줄이고 안정성을 높였다.
+
+순수 함수를 조합하여 만든 고차함수는 생산성을 크게 높일 수 있었다.
+
+Lazy Evaluation을 통해 연산의 성능을 높였다.
+
+Kotlin 또한 적극적으로 함수형 프로그래밍 패러다임을 받아들였으며 NPE를 발생하지 않게 하기 위해 Null-Safe한 데이터 타입을 제공하고 있다.
+
+이는 자바 개발자들이 NPE로 인한 골머리(Optional 클래스의 사용)를 앓는 것을 컴파일 단계에서 막아주었다.
+
+또한 간결한 문법과 Getter,Setter,생성자를 제공해주는 Data Class 등은 코틀린이 확실히 자바를 대체할 수 있을 것이라고 나는 확신한다.
 
 
 # Reference
@@ -173,4 +328,6 @@ https://medium.com/@lazysoul/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B
 https://medium.com/@lazysoul/functional-programming-%EC%97%90%EC%84%9C-1%EA%B8%89-%EA%B0%9D%EC%B2%B4%EB%9E%80-ba1aeb048059
 
 https://jeong-pro.tistory.com/23
+
+https://dororongju.tistory.com/137
 

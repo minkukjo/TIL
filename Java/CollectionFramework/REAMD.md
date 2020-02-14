@@ -135,11 +135,15 @@ TreeMap의 경우 내부적으로 정렬이 되어있는데, 이때 TreeMap의 �
 
 이는 디자인패턴에서 Iterator 패턴이라고도 불리운다.
 
-Map의 경우 Collection 인터페이스를 상속받고 있지 않기 때문에 이것이 불가능한데,
+그러나 Map의 경우 Collection 인터페이스를 상속받고 있지 않기 때문에 순회가 불가능하다.
 
-그래서 Map에는 keySet()이라는 메소드를 통해 현재 Map의 Key들을 Set 자료구조로 변환하여 반환해주는 메소드가 존재한다.
+어떻게 해야할까?
 
-이를 통해 반환된 Set의 Iterator 메소드를 호출하여 키와 값의 순회가 가능하다.
+자바에서는 Map의 순회를 위해 keySet()이라는 메소드를 제공하고 있다.
+
+keySet() 메소드는 현재 Map의 Key들을 Set 자료구조로 변환해준다.
+
+이를 통해 반환된 Set의 Iterator를 활용하여 Map 내부를 순회할 수 있다.
 
 ## Reference
 
