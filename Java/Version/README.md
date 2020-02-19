@@ -449,7 +449,7 @@ JVM에서 Full GC가 발생하면 흔히 말하는 'Stop-The-World' 현상이 �
 
 ### Heap Allocation on Alternative Memory Devices
 
-JVM Heap 영역을 NVDIMM(비 휘발성 메모리) 혹은 사용자 지정과 같은 대체 메모리 장치에 할당할 수 있게 되었다.
+JVM Heap 영역을 NVDIMM(비 휘발성 메모리) 혹은 사용자 지정과 같은 대체 메모리 장치에 할당할 수 있게 되었다.
 
 ## 자바 11
 
