@@ -10,7 +10,7 @@
 
 CopyOnWrite라는 이름처럼 변경이 일어날 경우 객체를 clone하여 다루자는 전략이다.
 
-CopyOnWrite는 ArrayList,LinkecdList와 마찬가지로 컬렉션 프레임워크를 상속받는 List 인터페이스의 구현체이다.
+CopyOnWrite는 ArrayList,LinkecdList와 마찬가지로 컬렉션 프레임워크를 상속받는 List 인터페이스의 구현체이다.
 
 ArrayList와 다른 점은 딱 한가지인데, 바로 Thread-safe 유무이다.
 
